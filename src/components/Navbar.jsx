@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate, NavLink } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux"
 import { logout } from "../features/auth/authSlice"
 
@@ -20,7 +20,7 @@ function Navbar() {
       </Link>
 
       <div className="flex gap-4 items-center">
-        <Link to="/" className="hover:text-blue-400">Home</Link>
+        <NavLink to="/" className={ ({isActive}) => isActive ? "text-blue-500 font-semibold" :"hover:text-blue-400" }>Home</NavLink>
 
         {!isLoggedIn && (
           <>
@@ -31,8 +31,10 @@ function Navbar() {
 
         {isLoggedIn && (
           <>
-            <Link to="/explore" className="hover:text-blue-400">Explore</Link>
-            <Link to="/profile" className="hover:text-blue-400">Profile</Link>
+            <NavLink to="/explore" className={({isActive}) => isActive ? "text-blue-500 font-semibold" : "hover:text-blue-400"}>Explore</NavLink>
+
+            <NavLink to="/profile" className={({isActive}) => isActive? "text-blue-500 font-semibold" : "hover:text-blue-400"}>Profile</NavLink>
+
             <button
               onClick={handleLogout}
               className="bg-red-600 hover:bg-red-700 px-3 py-1 rounded"
