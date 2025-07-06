@@ -51,7 +51,7 @@ function Explore() {
           onChange={e => setSelectedSkill(e.target.value)}
           className="bg-gray-700 text-white px-4 py-2 rounded w-full"
         >
-          <option value="">-- Filter by Skill --</option>
+          <option value="">-- Filter By Skill --</option>
           {uniqueSkills.map((skill, i) => (
             <option key={i} value={skill}>{skill}</option>
           ))}
@@ -70,7 +70,7 @@ function Explore() {
               {user.skills && user.skills.length > 0 ? (
                 user.skills.map((skill, i) => (
                   <li key={i}>
-                    <strong>{skill.title}:</strong> {skill.description}
+                    <strong>{skill.title.toUpperCase()}: </strong> {skill.description}
                   </li>
                 ))
               ) : (

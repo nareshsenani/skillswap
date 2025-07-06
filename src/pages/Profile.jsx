@@ -3,7 +3,7 @@ import { logout, updateUserSkills } from "../features/auth/authSlice"
 import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
 import EditSkillModal from "../components/EditSkillModel"
-
+import  {Trash} from "lucide-react"
 function Profile() {
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -85,7 +85,7 @@ function Profile() {
                   className="bg-gray-700 p-4 rounded-lg shadow-md flex flex-col justify-between"
                 >
                   <div>
-                    <h4 className="text-lg font-semibold text-white">{skill.title}</h4>
+                    <h4 className="text-lg font-semibold text-white">{skill.title.toUpperCase()}</h4>
                     <p className="text-gray-300">{skill.description}</p>
                   </div>
                   <div className="flex mt-4 space-x-4">
@@ -101,7 +101,7 @@ function Profile() {
                       className="text-red-400 hover:text-red-300"
                       title="Delete"
                     >
-                      ❌
+                      <Trash />
                     </button>
                   </div>
                 </div>
